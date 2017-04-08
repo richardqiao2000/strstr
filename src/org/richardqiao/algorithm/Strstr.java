@@ -49,47 +49,42 @@ public class Strstr {
     }
 
     int length = len, more = 0;
-    for(int i = 0; i < chNeedle.length; i++){
-      anagram[chHay[i]]--;
-      if(anagram[chHay[i]] >= 0){
-        length--;
+    for(int i = 0; i < chHay.length; i++){
+      if(i < chNeedle.length){
+        anagram[chHay[i]]--;
+        if(anagram[chHay[i]] >= 0){
+          length--;
+        }else{
+          more++;
+        }
       }else{
-        more++;
+        int j = i - len;
+        char chStart = chHay[j];
+        char chEnd = chHay[i];
+        
+        anagram[chStart]++;
+        if(anagram[chStart] <= 0){
+          more--;
+        }else{
+          length++;
+        }
+        
+        anagram[chEnd]--;
+        if(anagram[chEnd] >= 0){
+          length--;
+        }else{
+          more++;
+        }  
       }
-    }
-    
-    if(length == 0 && more == 0){
-      if(compare(chNeedle, chHay, 0)){
-        return 0;
-      }
-    }
-    
-    for(int i = 1; i <= chHay.length - len; i++){
-      char chStart = chHay[i - 1];
-      char chEnd = chHay[i + len - 1];
-      
-      anagram[chStart]++;
-      if(anagram[chStart] <= 0){
-        more--;
-      }else{
-        length++;
-      }
-      
-      anagram[chEnd]--;
-      if(anagram[chEnd] >= 0){
-        length--;
-      }else{
-        more++;
-      }
-
-      if(length == 0 && more == 0 && !flag[i]){
-        if(compare(chNeedle, chHay, i)){
-          return i;
+      if(length == 0 && more == 0){
+        if(compare(chNeedle, chHay, i - len + 1)){
+          return i - len + 1;
         }
       }
     }
 
     return -1;
+
   }
   
   private static boolean compare(char[] needle, char[] hay, int start){
