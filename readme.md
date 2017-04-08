@@ -19,3 +19,6 @@ By using above 2 features, we will build our algorithm in this way.
      valid(which was NOT marked in step 2&3), compare the needle characters one by one to check if it's a substring of hay.
 * 5. When hay's length is much much larger than needle's length, the time complexity is O(n)
 * 6. Easier than KMP, right?
+
+Class StrstrAnagramOnly is impelementing the algorithm without using sequences I mentioned in step 1-4, as makes this algorithm
+Space O(1).
