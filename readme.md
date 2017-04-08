@@ -6,8 +6,8 @@ There are 2 factors we are considering to ignore the characters comparison:
 * If a substring in hay is not an anagram of needle, it must not be needle, and we will ignore the related characters' comparison.
 * If the sequence of any 2 characters in hay is not existed in any sequence of 2 characters in needle, then in the hay,
   the characters before the 2 "invalid" sequence can be ignored from comparison.
-  For example, we have hay = "abcdef", and needle = "ade", and we can see all needle's sequences are [ad, de], and the sequence of
-  "ef" will be used to mark that the substring of "def" will not be possible to be needle, because "ef" is not any sequence of
+  For example, we have hay = "abadef", and needle = "ade", and we can see all needle's sequences are [ad, de], and the sequence of
+  "ba" will be used to mark that the substring of "aba" will not be possible to be needle, because "ba" is not any sequence of
   [ad, de]
 
 By using above 2 features, we will build our algorithm in this way.
