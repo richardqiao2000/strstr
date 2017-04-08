@@ -26,6 +26,7 @@ public class Strstr {
         flag[i - len + 1] = true;
       }
     }
+    
 
     for(int i = 0, count = 0; i < flag.length; i++){
       if(flag[i]){
