@@ -41,6 +41,7 @@ public class Strstr {
     for(char ch: chNeedle){
       anagram[ch]++;
     }
+
     int length = len, more = 0;
     for(int i = 0; i < chNeedle.length; i++){
       anagram[chHay[i]]--;
@@ -50,11 +51,13 @@ public class Strstr {
         more++;
       }
     }
+    
     if(length == 0 && more == 0){
       if(compare(chNeedle, chHay, 0)){
         return 0;
       }
     }
+    
     for(int i = 1; i <= chHay.length - len; i++){
       char chStart = chHay[i - 1];
       char chEnd = chHay[i + len - 1];
