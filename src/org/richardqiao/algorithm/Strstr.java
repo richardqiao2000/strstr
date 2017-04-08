@@ -27,6 +27,7 @@ public class Strstr {
       }
     }
     
+    
     for(int i = 0, count = 0; i < flag.length; i++){
       if(flag[i]){
         count = len - 1;
