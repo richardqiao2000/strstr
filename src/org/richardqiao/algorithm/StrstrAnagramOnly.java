@@ -3,16 +3,16 @@ package org.richardqiao.algorithm;
 public class StrstrAnagramOnly {
 
   public static void main(String[] args) {
-    System.out.println(strstr("adebadef", "ade"));
+    System.out.println(strstr("adbadef", "ade"));
   }
 
-  private static int strstr(String hay, String needle){
-    if(hay.length() < needle.length()) return -1;
-    if(hay.length() == needle.length()){
-      if(hay.equals(needle)) return 0;
+  private static int strstr(String haystack, String needle){
+    if(haystack.length() < needle.length()) return -1;
+    if(haystack.length() == needle.length()){
+      if(haystack.equals(needle)) return 0;
       return -1;
     }
-    char[] chHay = hay.toCharArray();
+    char[] chHay = haystack.toCharArray();
     char[] chNeedle = needle.toCharArray();
     int len = chNeedle.length;
 
