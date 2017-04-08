@@ -1,8 +1,6 @@
 package org.richardqiao.algorithm;
 
-import java.util.*;
-
-public class Strstr {
+public class StrstrAnagramOnly {
 
   public static void main(String[] args) {
     System.out.println(strstr("abadef", "ade"));
@@ -17,32 +15,7 @@ public class Strstr {
     char[] chHay = hay.toCharArray();
     char[] chNeedle = needle.toCharArray();
     int len = chNeedle.length;
-    boolean[] flag = new boolean[chHay.length];
-    Map<Character, Set<Character>> map = new HashMap<Character, Set<Character>>();
-    for(int i = 0; i < chNeedle.length - 1; i++){
-      if(!map.containsKey(chNeedle[i])){
-        map.put(chNeedle[i], new HashSet<Character>());
-      }
-      map.get(chNeedle[i]).add(chNeedle[i + 1]);
-    }
-    for(int i = chNeedle.length - 1; i > 0 && i < chHay.length; i++){
-      char chPre = chHay[i - 1], chSuf = chHay[i];
-      if(!map.containsKey(chPre) || !map.get(chPre).contains(chSuf)){
-        flag[i - len + 1] = true;
-      }
-    }
-    
-    
-    for(int i = 0, count = 0; i < flag.length; i++){
-      if(flag[i]){
-        count = len - 1;
-      }
-      if(count > 0){
-        flag[i] = true;
-        count--;
-      }
-    }
-    
+
     int[] anagram = new int[128];
     for(char ch: chNeedle){
       anagram[ch]++;
@@ -82,7 +55,7 @@ public class Strstr {
         more++;
       }
 
-      if(length == 0 && more == 0 && !flag[i]){
+      if(length == 0 && more == 0){
         if(compare(chNeedle, chHay, i)){
           return i;
         }
@@ -99,4 +72,5 @@ public class Strstr {
     }
     return true;
   }
+
 }
