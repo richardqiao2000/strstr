@@ -9,6 +9,11 @@ public class Strstr {
   }
 
   private static int strstr(String hay, String needle){
+    if(hay.length() < needle.length()) return -1;
+    if(hay.length() == needle.length()){
+      if(hay.equals(needle)) return 0;
+      return -1;
+    }
     char[] chHay = hay.toCharArray();
     char[] chNeedle = needle.toCharArray();
     int len = chNeedle.length;
