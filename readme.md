@@ -19,7 +19,7 @@ By using above 2 features, we will build our algorithm in this way.
 * 4. Use O(n) to analyze possible anagram of needle in hay, once there is a anagram substring as well as the starting point is
      valid(which was NOT marked in step 2&3), compare the needle characters one by one to check if it's a substring of hay.
 * 5. When hay's length is much much larger than needle's length, the time complexity is O(n)
-* 6. Easier than KMP, right?
+* 6. Easier than KMP & Suffix Tree, right?
 
 ### Class StrstrAnagramOnly
 Class StrstrAnagramOnly is impelementing the algorithm without using sequences I mentioned in step 1-4, as makes this algorithm

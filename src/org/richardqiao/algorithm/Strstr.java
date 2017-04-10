@@ -17,7 +17,9 @@ public class Strstr {
     char[] chHay = haystack.toCharArray();
     char[] chNeedle = needle.toCharArray();
     int len = chNeedle.length;
+    // flag is marked true if the position of hay is not possible to be the starting of a substring of needle
     boolean[] flag = new boolean[chHay.length];
+    //map is used to mark all valid sequences between 2 adjecent characters in needle
     Map<Character, Set<Character>> map = new HashMap<Character, Set<Character>>();
     for(int i = 0; i < chNeedle.length - 1; i++){
       if(!map.containsKey(chNeedle[i])){
@@ -43,6 +45,7 @@ public class Strstr {
       }
     }
     
+    //build anagram
     int[] anagram = new int[128];
     for(char ch: chNeedle){
       anagram[ch]++;
